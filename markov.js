@@ -30,16 +30,16 @@ class MarkovMachine {
   /** return random text from chains */
 
   makeText(numWords = 50) {
-    function getRandom(array) {
+    function randomWord(array) {
       // get Random word from list
       return array[Math.floor(Math.random() * array.length)];
     }
     let keys = Object.keys(this.chain);
-    let key = getRandom(keys);
+    let key = randomWord(keys);
     let output = [];
     while (output.length < numWords && key !== null) {
       output.push(key);
-      key = getRandom(this.chain[key]);
+      key = randomWord(this.chain[key]);
     }
     return output.join(" ");
   }
